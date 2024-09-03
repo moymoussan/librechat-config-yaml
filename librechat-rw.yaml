@@ -6,6 +6,29 @@ registration:
   socialLogins: ["discord", "facebook", "github", "google", "openid"]
 
 endpoints:
+  azureOpenAI:
+    # Endpoint-level configuration
+    titleModel: "gpt-4o"
+    plugins: true
+    assistants: true
+    groups:
+    # Group-level configuration
+    - group: "azure-openai-group-1"
+      apiKey: "${AZURE_OPENAI_KEY}"
+      instanceName: "azureopenaisponsoreastus"
+      version: "2024-02-15-preview"
+      # Model-level configuration
+      models:
+        gpt-4o:
+          deploymentName: gpt-4o
+          version: "2024-02-15-preview"
+        gpt-4o-mini:
+          deploymentName: gpt-4o-mini
+          version: "2024-02-15-preview"
+      # Model-level configuration
+      models:
+        gpt-4o: true
+        gpt-4o-mini: true
   custom:
     # Anyscale
     # # Model list: https://console.anyscale.com/v2/playground
