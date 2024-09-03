@@ -8,18 +8,20 @@ registration:
 endpoints:
   openai:
     apiKey: "user_provided"
+    groups: []  # Añadir si es necesario
   azureOpenAI:
     apiKey: "user_provided"
+    groups: []  # Necesario para evitar errores
   google:
     apiKey: "user_provided"
   plugins:
     enabled: true
+  groq:
+    apiKey: "user_provided"
 
 assistants:
   disableBuilder: false
-  supportedIds: []  # Deja vacío para incluir todos los asistentes
-  excludedIds: []   # No excluyas ninguno para que todos estén disponibles
+  supportedIds: []  # Deja esta lista vacía para incluir todos los asistentes
+  excludedIds: []   # Deja esta lista vacía para no excluir ninguno
   pollIntervalMs: 3000
   timeoutMs: 10000
-
-# Asegúrate de no tener ninguna configuración de asistente personalizada que ya no necesites.
