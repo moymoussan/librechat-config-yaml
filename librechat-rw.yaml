@@ -6,50 +6,41 @@ registration:
   socialLogins: ["discord", "facebook", "github", "google", "openid"]
 
 endpoints:
-  openai:
-    apiKey: "user_provided"
-    models:
-      default: [
-        "gpt-4o",
-        "gpt-4o-mini"
-      ]
-    fetch: false
-    titleConvo: true
-    titleModel: "gpt-4o"
-    modelDisplayLabel: "OpenAI"
-
   azureOpenAI:
     apiKey: "user_provided"
-    baseURL: "user_configured"
+    groups: []  # Asegúrate de que sea un array, aunque esté vacío.
     models:
-      default: "user_configured"
-    fetch: false
-    titleConvo: true
-    titleModel: "user_configured"
-    modelDisplayLabel: "Azure OpenAI"
+      fetch: true
+  
+  custom:
+    - name: "groq"
+      apiKey: "${GROQ_API_KEY}"
+      baseURL: "https://api.groq.com/openai/v1/"
+      models:
+        default: [
+          "llama-3.1-405b-reasoning",
+          "llama-3.1-70b-versatile",
+          "llama-3.1-8b-instant"
+        ]
+        fetch: false
+      titleConvo: true
+      titleModel: "llama-3.1-405b-reasoning"
+      modelDisplayLabel: "groq"
+  
+    - name: "openai"
+      apiKey: "user_provided"
+      models:
+        default: [
+          "gpt-4o",
+          "gpt-4o-mini"
+        ]
+        fetch: true
+  
+    - name: "google"
+      apiKey: "user_provided"
+  
+    - name: "plugins"
+      enabled: true
 
-  groq:
-    apiKey: "${GROQ_API_KEY}"
-    baseURL: "https://api.groq.com/openai/v1/"
-    models:
-      default: [
-        "llama-3.1-405b-reasoning",
-        "llama-3.1-70b-versatile",
-        "llama-3.1-8b-instant",
-        "llama3-groq-70b-8192-tool-use-preview",
-        "llama3-groq-8b-8192-tool-use-preview",
-        "llama3-70b-8192",
-        "llama3-8b-8192",
-        "mixtral-8x7b-32768",
-        "gemma-7b-it",
-        "gemma2-9b-it"
-      ]
-    fetch: false
-    titleConvo: true
-    titleModel: "mixtral-8x7b-32768"
-    modelDisplayLabel: "groq"
-
-  plugins:
-    enabled: true
-
-# Add other endpoints and configurations as needed below this line
+assistants:
+  enabled: true
