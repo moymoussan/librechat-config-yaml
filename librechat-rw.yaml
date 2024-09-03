@@ -8,20 +8,48 @@ registration:
 endpoints:
   openai:
     apiKey: "user_provided"
-    groups: []  # Añadir si es necesario
+    models:
+      default: [
+        "gpt-4o",
+        "gpt-4o-mini"
+      ]
+    fetch: false
+    titleConvo: true
+    titleModel: "gpt-4o"
+    modelDisplayLabel: "OpenAI"
+
   azureOpenAI:
     apiKey: "user_provided"
-    groups: []  # Necesario para evitar errores
-  google:
-    apiKey: "user_provided"
+    baseURL: "user_configured"
+    models:
+      default: "user_configured"
+    fetch: false
+    titleConvo: true
+    titleModel: "user_configured"
+    modelDisplayLabel: "Azure OpenAI"
+
+  groq:
+    apiKey: "${GROQ_API_KEY}"
+    baseURL: "https://api.groq.com/openai/v1/"
+    models:
+      default: [
+        "llama-3.1-405b-reasoning",
+        "llama-3.1-70b-versatile",
+        "llama-3.1-8b-instant",
+        "llama3-groq-70b-8192-tool-use-preview",
+        "llama3-groq-8b-8192-tool-use-preview",
+        "llama3-70b-8192",
+        "llama3-8b-8192",
+        "mixtral-8x7b-32768",
+        "gemma-7b-it",
+        "gemma2-9b-it"
+      ]
+    fetch: false
+    titleConvo: true
+    titleModel: "mixtral-8x7b-32768"
+    modelDisplayLabel: "groq"
+
   plugins:
     enabled: true
-  groq:
-    apiKey: "user_provided"
 
-assistants:
-  disableBuilder: false
-  supportedIds: []  # Deja esta lista vacía para incluir todos los asistentes
-  excludedIds: []   # Deja esta lista vacía para no excluir ninguno
-  pollIntervalMs: 3000
-  timeoutMs: 10000
+# Add other endpoints and configurations as needed below this line
