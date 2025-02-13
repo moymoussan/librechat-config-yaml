@@ -5,14 +5,14 @@ fileStrategy: "firebase"
 
 interface:
   privacyPolicy:
-    externalUrl: 'https://librechat.ai/privacy-policy'
+    externalUrl: 'https://nonocard.com/legales/Aviso-de-privacidad-nono-card.pdf'
     openNewTab: true
   termsOfService:
-    externalUrl: 'https://librechat.ai/tos'
+    externalUrl: 'https://nonocard.com/legales/Terminos-y-condiciones-nono-card.pdf'
     openNewTab: true
 
 registration:
-  socialLogins: ["discord", "facebook", "github", "google", "openid"]
+  socialLogins: ["google"]
 
 endpoints:
   custom:
